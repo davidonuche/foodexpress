@@ -27,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
                 // Handle customer button press
                 // You can navigate to the customer-related screen here
               },
-              child: Text('Customer'),
+              child: Text('Customer sign in'),
             ),
 
             SizedBox(height: 12),
@@ -41,7 +41,7 @@ class OnboardingScreen extends StatelessWidget {
                 // Handle seller button press
                 // You can navigate to the seller-related screen here
               },
-              child: Text('Sellers'),
+              child: Text('Sellers sign in'),
             ),
           ],
         ),
