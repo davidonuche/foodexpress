@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodexpress/utils/colors.dart';
 
 class OnboardingScreen extends StatelessWidget {
   @override
@@ -18,6 +19,10 @@ class OnboardingScreen extends StatelessWidget {
             SizedBox(height: 190),
 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                onPrimary: AppColor.black,
+                primary: AppColor.white,
+              ),
               onPressed: () {
                 // Handle customer button press
                 // You can navigate to the customer-related screen here
@@ -28,6 +33,10 @@ class OnboardingScreen extends StatelessWidget {
             SizedBox(height: 12),
 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                onPrimary: AppColor.black,
+                primary: AppColor.white,
+              ),
               onPressed: () {
                 // Handle seller button press
                 // You can navigate to the seller-related screen here
