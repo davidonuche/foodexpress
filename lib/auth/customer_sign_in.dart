@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-class SellersScreen extends StatefulWidget {
+class CustomerSignInScreen extends StatefulWidget {
   @override
-  _SellersScreenState createState() => _SellersScreenState();
+  _CustomerSignInScreenState createState() => _CustomerSignInScreenState();
 }
 
-class _SellersScreenState extends State<SellersScreen> {
-  TextEditingController _nameController = TextEditingController();
+class _CustomerSignInScreenState extends State<CustomerSignInScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -22,20 +20,13 @@ class _SellersScreenState extends State<SellersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sellers'),
+        title: Text('Customer Sign In'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: 'Name',
-              ),
-            ),
-            SizedBox(height: 16.0),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -53,13 +44,12 @@ class _SellersScreenState extends State<SellersScreen> {
             SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
-                // Handle registration button press
-                String name = _nameController.text;
+                // Handle sign-in button press
                 String email = _emailController.text;
                 String password = _passwordController.text;
-                // Perform seller registration logic here
+                // Perform sign-in validation or authentication here
               },
-              child: Text('Register'),
+              child: Text('Sign In'),
             ),
           ],
         ),
