@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodexpress/auth/onboarding.dart';
+import 'package:foodexpress/view/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Express',
-      home: OnboardingScreen(),
+      home: HomeScreen(),
     );
   }
 }

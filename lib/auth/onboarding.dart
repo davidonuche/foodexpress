@@ -33,25 +33,6 @@ class OnboardingScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  onPrimary: AppColor.black,
-                  primary: AppColor.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                child: Text(
-                  'Log in',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-              ),
-            ),
-            SizedBox(height: 12),
-            SizedBox(
-              width: 350,
-              height: 50.0,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
                   onPrimary: AppColor.white,
                   primary: AppColor.black,
                   shape: RoundedRectangleBorder(
@@ -59,7 +40,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Dont have an account? Sign up',
+                  'Get started',
                   style: TextStyle(fontSize: 16.0),
                 ),
               ),
