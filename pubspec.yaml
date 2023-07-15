@@ -63,7 +63,6 @@ flutter:
   assets:
     - asset/svgs/
     - asset/imgs/
-    - lib/images/first_page.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
