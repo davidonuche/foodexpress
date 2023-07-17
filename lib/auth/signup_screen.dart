@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodexpress/common_widgets/bottom_nav.dart';
+import 'package:foodexpress/view/delivery_address.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -44,7 +45,7 @@ class SignupScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => BottomNav()),
+                  MaterialPageRoute(builder: (context) => DeliveryAddress()),
                 );
               },
               child: Text(

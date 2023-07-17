@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/delivery_address.dart';
 import 'package:foodexpress/view/home.dart';
+import 'package:foodexpress/view/orders.dart';
+import 'package:foodexpress/view/profile.dart';
+import 'package:foodexpress/view/search.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -18,9 +22,9 @@ class _BottomNavState extends State<BottomNav> {
           index: _selectedIndex,
           children: [
             HomeScreen(),
-            Container(),
-            Container(),
-            Container(),
+            Search(),
+            Orders(),
+            Profile(),
           ],
         ),
       ),
@@ -45,7 +49,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.list),
-            label: 'List',
+            label: 'Orders',
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.account_circle),
