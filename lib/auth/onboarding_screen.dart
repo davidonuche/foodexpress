@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:foodexpress/auth/signup_screen.dart';
+import 'package:foodexpress/view/vendor_first_screen.dart';
 import 'login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -180,11 +181,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       fontSize: 17),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      // Navigator.push(
-                      //   context,
-                      // MaterialPageRoute(
-                      //     builder: (context) => SignUpScreen()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VendorFirstScreen()),
+                      );
                     },
                 ),
               ],
