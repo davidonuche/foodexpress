@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/auth/onboarding_screen.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -37,7 +38,10 @@ class Profile extends StatelessWidget {
                 icon: Icons.logout,
                 title: 'Logout',
                 onTap: () {
-                  // Perform logout action
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
+                );
                 },
               ),
             ],

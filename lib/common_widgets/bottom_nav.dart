@@ -19,6 +19,7 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       body: SafeArea(
         child: IndexedStack(
+          
           index: _selectedIndex,
           children: [
             HomeScreen(),

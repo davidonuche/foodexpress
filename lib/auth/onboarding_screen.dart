@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:foodexpress/auth/signup_screen.dart';
+import 'package:foodexpress/auth/sign_up_screen.dart';
 import 'package:foodexpress/view/vendor_first_screen.dart';
-import 'login_screen.dart';
+import 'sign_in_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({super.key});
@@ -126,7 +126,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               onPressed: () {
-                // Handle Sign Up button press
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInScreen()),
+                );
               },
               child: Text(
                 "Log in",
@@ -149,7 +152,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SignupScreen()),
+                  MaterialPageRoute(builder: (context) => SignUpScreen()),
                 );
               },
               child: Text(
