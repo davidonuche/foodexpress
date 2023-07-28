@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodexpress/view/delivery_address.dart';
 import 'package:foodexpress/view/home.dart';
-import 'package:foodexpress/view/orders.dart';
 import 'package:foodexpress/view/profile.dart';
 import 'package:foodexpress/view/search.dart';
 
@@ -19,12 +17,10 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       body: SafeArea(
         child: IndexedStack(
-          
           index: _selectedIndex,
           children: [
             HomeScreen(),
             Search(),
-            Orders(),
             Profile(),
           ],
         ),
@@ -47,10 +43,6 @@ class _BottomNavState extends State<BottomNav> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.search),
             label: 'search',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.list),
-            label: 'Orders',
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.account_circle),

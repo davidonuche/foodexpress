@@ -3,16 +3,13 @@ import 'package:flutter/material.dart';
 class Restaurant extends StatelessWidget {
   final List<MenuItem> menuItems = [
     MenuItem(
-      name: 'Jollof rice',
-      price: 500,
-      image: 'asset/imgs/chicken.png',
+      name: 'Ivory Bite',
+      image: 'asset/imgs/ivory_bite.jpeg',
     ),
     MenuItem(
-      name: 'Peppersoup',
-      price: 500,
-      image: 'asset/imgs/peppersoup.png',
+      name: 'Captin Cook',
+      image: 'asset/imgs/captin_cook.jpeg',
     ),
-//     Add more menu items
   ];
 
   @override
@@ -22,7 +19,7 @@ class Restaurant extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
-          'Country Kitchen dishes',
+          'Restaurants',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -46,12 +43,10 @@ class Restaurant extends StatelessWidget {
 }
 
 class MenuItem {
-  final double price;
   final String image;
   final String name;
 
   MenuItem({
-    required this.price,
     required this.image,
     required this.name,
   });
@@ -85,13 +80,6 @@ class MenuItemCard extends StatelessWidget {
                   menuItem.name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
-                  ),
-                ),
-                SizedBox(height: 4.0),
-                Text(
-                  '\Delivery: #${menuItem.price.toStringAsFixed(2)}',
-                  style: TextStyle(
                     fontSize: 16.0,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/restaurant.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -47,6 +48,66 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(width: 200),
               TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Restaurant(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "View more",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 24,
+              left: 24,
+            ),
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 4,
+                ),
+                image: DecorationImage(
+                  image: AssetImage("asset/imgs/country_kitchen.jpeg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  "Country Kitchen",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 16.0),
+          Row(
+            children: [
+              SizedBox(width: 16.0),
+              Text(
+                'Dishes',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(width: 200),
+              TextButton(
                   onPressed: () {},
                   child: Text(
                     "View more",
@@ -67,10 +128,6 @@ class HomeScreen extends StatelessWidget {
                   crossAxisSpacing: 10.0,
                   mainAxisSpacing: 10.0,
                   children: [
-                    _buildMedicationCard(context, 'Country Kitchen',
-                        'asset/imgs/country_kitchen.png'),
-                    _buildMedicationCard(
-                        context, 'Mr biggs', 'asset/imgs/mr_biggs.png'),
                     _buildMedicationCard(
                         context, 'Jollof rice', 'asset/imgs/jollof_rice.png'),
                     _buildMedicationCard(
