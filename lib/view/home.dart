@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/country_kitchen.dart';
+import 'package:foodexpress/view/dishes.dart';
 import 'package:foodexpress/view/restaurant.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -71,25 +73,35 @@ class HomeScreen extends StatelessWidget {
               right: 24,
               left: 24,
             ),
-            child: Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 4,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CountryKitchen(),
+                  ),
+                );
+              },
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 4,
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage("asset/imgs/country_kitchen.jpeg"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                image: DecorationImage(
-                  image: AssetImage("asset/imgs/country_kitchen.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Text(
-                  "Country Kitchen",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Country Kitchen",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
@@ -108,7 +120,14 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(width: 200),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Dishes(),
+                      ),
+                    );
+                  },
                   child: Text(
                     "View more",
                     style: TextStyle(

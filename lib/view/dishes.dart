@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/order.dart';
 
-class Restaurant extends StatelessWidget {
+class Dishes extends StatelessWidget {
   final List<MenuItem> menuItems = [
     MenuItem(
       name: 'Ivory Bite',
-      title: 'ile-ife Nigeria',
-      image: 'asset/imgs/country_kitchen.jpeg',
+      title: 'Country kitchen',
+      image: 'asset/imgs/jollof_rice.png',
       price: 'Delivery: \$1,500',
     ),
     MenuItem(
       name: 'Captin Cook',
-      title: 'ile-ife Nigeria',
-      image: 'asset/imgs/captin_cook.jpeg',
-      price: 'Delivery: \$2,000',
-    ),
-    MenuItem(
-      name: 'Captin Cook',
-      title: 'ile-ife Nigeria',
-      image: 'asset/imgs/captin_cook.jpeg',
+      title: 'Mr biggs',
+      image: 'asset/imgs/peppersoup.png',
       price: 'Delivery: \$2,000',
     ),
     MenuItem(
       name: 'Ivory Bite',
-      title: 'ile-ife Nigeria',
-      image: 'asset/imgs/country_kitchen.jpeg',
+      title: 'Country kitchen',
+      image: 'asset/imgs/jollof_rice.png',
       price: 'Delivery: \$1,500',
+    ),
+    MenuItem(
+      name: 'Captin Cook',
+      title: 'Mr biggs',
+      image: 'asset/imgs/peppersoup.png',
+      price: 'Delivery: \$2,000',
     ),
   ];
 
@@ -36,7 +37,7 @@ class Restaurant extends StatelessWidget {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          'Restaurants',
+          'Dishes',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -123,8 +124,12 @@ class MenuItemCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          
-          print('Card clicked');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Order(),
+            ),
+          );
         },
         child: Container(
           width: 259,
