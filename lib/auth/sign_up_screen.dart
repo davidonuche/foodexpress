@@ -119,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onFieldSubmitted: (_) =>
                         FocusScope.of(context).requestFocus(_passwordFocusNode),
                     onSaved: (value) {
-                      _email = value!.trim();
+                      _username = value!.trim();
                     },
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(

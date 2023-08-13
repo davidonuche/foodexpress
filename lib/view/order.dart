@@ -7,6 +7,7 @@ class Order extends StatefulWidget {
 
 class _OrderState extends State<Order> {
   int itemCount = 0;
+  List<String> cartItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +15,30 @@ class _OrderState extends State<Order> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
-          'Country Kitchen Restaurant',
-          style: TextStyle(color: Colors.black),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Country Kitchen Restaurant',
+              style: TextStyle(color: Colors.black),
+            ),
+            GestureDetector(
+              onTap: () {
+                _showCartDialog();
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.shopping_cart,
+                    color: Colors.black,
+                  ),
+                  SizedBox(width: 4),
+                  Text(cartItems.length.toString(),
+                      style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+          ],
         ),
         leading: IconButton(
           icon: Icon(
@@ -28,47 +50,41 @@ class _OrderState extends State<Order> {
           },
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 200,
-                    child: Image.asset(
-                      'asset/imgs/chicken.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'jollof rice',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Text('#3,000'),
-                      Spacer(
-                        flex: 8,
-                      ),
-                      Text('Delivery: # 1,500'),
-                      Spacer(),
-                    ],
-                  ),
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 200,
+              child: Image.asset(
+                'asset/imgs/chicken.png',
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-          _buildAddToCartRow(),
-        ],
+            SizedBox(height: 16),
+            Text(
+              'jollof rice',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Text('#3,000'),
+                Spacer(
+                  flex: 8,
+                ),
+                Text('Delivery: # 1,500'),
+                Spacer(),
+              ],
+            ),
+            SizedBox(height: 290), // Space for cart items
+            _buildAddToCartRow(), // Add to Cart feature
+          ],
+        ),
       ),
     );
   }
@@ -81,7 +97,12 @@ class _OrderState extends State<Order> {
         children: [
           ElevatedButton(
             onPressed: () {
-              // Implement your logic when the "Add to Cart" button is pressed
+              if (itemCount > 0) {
+                cartItems.add('jollof rice');
+                setState(() {
+                  itemCount = 0;
+                });
+              }
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
@@ -155,6 +176,32 @@ class _OrderState extends State<Order> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showCartDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Cart Items'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (String item in cartItems) Text(item),
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

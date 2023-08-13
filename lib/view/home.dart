@@ -92,15 +92,8 @@ class HomeScreen extends StatelessWidget {
                     width: 4,
                   ),
                   image: DecorationImage(
-                    image: AssetImage("asset/imgs/country_kitchen.jpeg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    "Country Kitchen",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    image: AssetImage("asset/imgs/country_k.png"),
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
@@ -151,9 +144,28 @@ class HomeScreen extends StatelessWidget {
                         context, 'Jollof rice', 'asset/imgs/jollof_rice.png'),
                     _buildMedicationCard(
                         context, 'Peppersoup', 'asset/imgs/peppersoup.png'),
+                    _buildMedicationCard(
+                        context, 'Akara', 'asset/imgs/akara.jpg'),
+                    _buildMedicationCard(
+                        context, 'Agege', 'asset/imgs/Agege.jpeg'),
+                    _buildMedicationCard(
+                        context, 'Asun', 'asset/imgs/asun.jpg'),
+                    _buildMedicationCard(
+                        context, 'Asaro', 'asset/imgs/asaro.jpg'),
                   ],
                 ),
               ],
+            ),
+          ),
+          Container(
+            height: 50,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 247, 235, 131),
+              image: DecorationImage(
+                image: AssetImage("asset/imgs/promo.png"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ],

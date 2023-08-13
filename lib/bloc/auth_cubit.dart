@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -41,6 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
       // 3. Write our user to cloud usercollection
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      print("object - ${userCredential.user!.uid}");
       userCredential.user!.updateDisplayName(username);
       // Write our user to cloud firestore
       FirebaseFirestore firestore = FirebaseFirestore.instance;

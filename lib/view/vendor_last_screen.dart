@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/auth/sign_up_screen.dart';
 import 'package:foodexpress/common_widgets/bottom_nav.dart';
 import 'package:foodexpress/view/home.dart';
 
@@ -101,8 +102,10 @@ class _VendorLastScreenState extends State<VendorLastScreen> {
 
                   // After 30 seconds, navigate to the home screen
                   Future.delayed(Duration(milliseconds: 2000), () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => BottomNav()));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignUpScreen()));
                   });
                 },
                 style: ElevatedButton.styleFrom(

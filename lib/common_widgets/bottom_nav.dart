@@ -28,7 +28,7 @@ class _BottomNavState extends State<BottomNav> {
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 253, 252, 252),
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {

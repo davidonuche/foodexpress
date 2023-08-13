@@ -15,16 +15,28 @@ class Restaurant extends StatelessWidget {
       price: 'Delivery: \$2,000',
     ),
     MenuItem(
-      name: 'Captin Cook',
+      name: 'Shop Rite',
       title: 'ile-ife Nigeria',
-      image: 'asset/imgs/captin_cook.jpeg',
+      image: 'asset/imgs/shoprite.png',
+      price: 'Delivery: \$1,000',
+    ),
+    MenuItem(
+      name: 'Indeego',
+      title: 'ile-ife Nigeria',
+      image: 'asset/imgs/indeego.png',
       price: 'Delivery: \$2,000',
     ),
     MenuItem(
-      name: 'Ivory Bite',
+      name: 'Resort',
       title: 'ile-ife Nigeria',
-      image: 'asset/imgs/country_kitchen.jpeg',
-      price: 'Delivery: \$1,500',
+      image: 'asset/imgs/resort.png',
+      price: 'Delivery: \$1,000',
+    ),
+    MenuItem(
+      name: 'Mr Biggs',
+      title: 'ile-ife Nigeria',
+      image: 'asset/imgs/mr_biggs.png',
+      price: 'Delivery: \$2,000',
     ),
   ];
 
@@ -81,7 +93,7 @@ class Restaurant extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
-                    child: MenuItemCard(
+                    child: MenuItemRow(
                       menuItem: menuItems[index],
                     ),
                   );
@@ -109,76 +121,77 @@ class MenuItem {
   });
 }
 
-class MenuItemCard extends StatelessWidget {
+class MenuItemRow extends StatelessWidget {
   final MenuItem menuItem;
 
-  MenuItemCard({required this.menuItem});
+  MenuItemRow({required this.menuItem});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2.0,
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
       child: InkWell(
         onTap: () {
-          
           print('Card clicked');
         },
-        child: Container(
-          width: 259,
-          height: 169,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                child: Image.asset(
-                  menuItem.image,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(menuItem.image),
                   fit: BoxFit.cover,
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      menuItem.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    Text(
-                      menuItem.title,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          menuItem.price,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8.0),
+                  bottomLeft: Radius.circular(8.0),
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    menuItem.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    menuItem.title,
+                    style: TextStyle(
+                      fontSize: 14.0,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    menuItem.price,
+                    style: TextStyle(
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
