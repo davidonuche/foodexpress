@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/order.dart';
 
 class Dishes extends StatelessWidget {
   final List<MenuItem> menuItems = [
@@ -48,7 +49,7 @@ class Dishes extends StatelessWidget {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          'Restaurants',
+          'Dishes',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -137,7 +138,7 @@ class MenuItemRow extends StatelessWidget {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: Offset(0, 3),
           ),
         ],
       ),
@@ -145,53 +146,63 @@ class MenuItemRow extends StatelessWidget {
         onTap: () {
           print('Card clicked');
         },
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(menuItem.image),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(8.0),
-                  bottomLeft: Radius.circular(8.0),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Order(),
+              ),
+            );
+          },
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(menuItem.image),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    bottomLeft: Radius.circular(8.0),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    menuItem.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
+              SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      menuItem.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    menuItem.title,
-                    style: TextStyle(
-                      fontSize: 14.0,
+                    SizedBox(height: 4),
+                    Text(
+                      menuItem.title,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    menuItem.price,
-                    style: TextStyle(
-                      fontSize: 14.0,
+                    SizedBox(height: 8),
+                    Text(
+                      menuItem.price,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
