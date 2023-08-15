@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/efo_riro.dart';
+import 'package:foodexpress/view/fried_rice.dart';
 import 'package:foodexpress/view/jollof_rice.dart';
 import 'package:foodexpress/view/pepper_soup.dart';
+import 'package:foodexpress/view/plantain.dart';
+import 'package:foodexpress/view/pounded_yam.dart';
 
 class CountryKitchen extends StatelessWidget {
   @override
@@ -79,26 +83,26 @@ class CountryKitchen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => JollofRice(
-                          foodName: 'Jollof rice',
+                        builder: (context) => FriedRice(
+                          foodName: 'Fried chicken',
                           price: 300,
-                          imagePath: 'asset/imgs/jollof_rice.png',
+                          imagePath: 'asset/imgs/chicken.png',
                         ),
                       ),
                     );
                   },
                   child: _buildFoodItem(
-                      'Fried chicken', '#2,500', 'asset/imgs/amala.png'),
+                      'Fried chicken', '#2,500', 'asset/imgs/chicken.png'),
                 ),
                 GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => JollofRice(
-                            foodName: 'Jollof rice',
+                          builder: (context) => Plantain(
+                            foodName: 'Plantain',
                             price: 300,
-                            imagePath: 'asset/imgs/jollof_rice.png',
+                            imagePath: 'asset/imgs/spag.png',
                           ),
                         ),
                       );
@@ -110,10 +114,10 @@ class CountryKitchen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => JollofRice(
-                          foodName: 'Jollof rice',
+                        builder: (context) => PoundedYam(
+                          foodName: 'Pounded yam',
                           price: 300,
-                          imagePath: 'asset/imgs/jollof_rice.png',
+                          imagePath: 'asset/imgs/jellof.png',
                         ),
                       ),
                     );
@@ -126,10 +130,10 @@ class CountryKitchen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => JollofRice(
-                            foodName: 'Jollof rice',
+                          builder: (context) => EfoRiro(
+                            foodName: 'Efo riro',
                             price: 300,
-                            imagePath: 'asset/imgs/jollof_rice.png',
+                            imagePath: 'asset/imgs/amala.png',
                           ),
                         ),
                       );
@@ -150,7 +154,7 @@ class CountryKitchen extends StatelessWidget {
                       );
                     },
                     child: _buildFoodItem(
-                        'Pepper soup', '#2,000', 'asset/imgs/spag.png')),
+                        'Pepper soup', '#2,000', 'asset/imgs/peppersoup.png')),
               ],
             ),
           ],

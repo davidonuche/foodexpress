@@ -5,8 +5,12 @@ class CartScreen extends StatelessWidget {
 
   CartScreen(
     Key? key,
-    this.cartItems, {required String foodName, required String imagePath, required int itemCount, required double price}
-  ) : super(key: key);
+    this.cartItems, {
+    required String foodName,
+    required String imagePath,
+    required int itemCount,
+    required double price,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,8 @@ class CartScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(cartItems[index].name),
-                  subtitle: Text('Price: \$${cartItems[index].price.toStringAsFixed(2)}'),
+                  subtitle: Text(
+                      'Price: \$${cartItems[index].price.toStringAsFixed(2)}'),
                 );
               },
             ),

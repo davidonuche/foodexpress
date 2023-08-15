@@ -10,9 +10,11 @@ import 'package:foodexpress/view/jollof_rice.dart';
 import 'package:foodexpress/view/pepper_soup.dart';
 import 'package:foodexpress/view/promo.dart';
 import 'package:foodexpress/view/restaurant.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'cart_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,25 +24,68 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
+            child: Row(
               children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.search),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      prefixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.search),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: 'Restaurant, groceries, dishes',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                     ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Restaurant, groceries, dishes',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
+                    onFieldSubmitted: (String value) {
+                      // Perform search action here
+                      print('Search: $value');
+                    },
                   ),
-                  onFieldSubmitted: (String value) {
-                    // Perform search action here
-                    print('Search: $value');
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                IconButton(
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CartScreen(cartItems: cartProvider.cartItems, foodName: '', itemCount: null, imagePath: '', price: null,),
+                    //   ),
+                    // );
                   },
+                  icon: Stack(
+                    children: [
+                      Icon(
+                        Icons.add_shopping_cart,
+                        size: 26,
+                        color: Colors.black,
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          padding: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.red,
+                          ),
+                          //child: Text(
+                          // '${cartProvider.cartItems.length}',
+                          // style: TextStyle(
+                          //   color: Colors.white,
+                          //   fontSize: 12,
+                          //   fontWeight: FontWeight.bold,
+                          // ),
+                          //),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -297,8 +342,8 @@ class HomeScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              // Add the item to the cart
-              //cartItems.add(CartItem(name: name, price: 300)); // You can adjust the price as needed
+              //final cartProvider = Provider.of<CartProvider>(context, listen: false);
+              //cartProvider.addToCart(CartItem(name: name, price: 300));
             },
             child: Text('Add to Cart'),
           ),

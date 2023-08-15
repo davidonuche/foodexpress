@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:foodexpress/view/cart_screen.dart';
 
-class JollofRice extends StatefulWidget {
+class PoundedYam extends StatefulWidget {
   final String foodName;
   final String imagePath;
   final double price;
 
-  JollofRice(
+  PoundedYam(
       {required this.foodName, required this.imagePath, required this.price});
 
   @override
-  _JollofRiceState createState() => _JollofRiceState();
+  _PoundedYamState createState() => _PoundedYamState();
 }
 
-class _JollofRiceState extends State<JollofRice> {
+class _PoundedYamState extends State<PoundedYam> {
   int itemCount = 0;
 
   @override
@@ -106,12 +105,12 @@ class _JollofRiceState extends State<JollofRice> {
           Spacer(),
           ElevatedButton(
             onPressed: () {
-              //  Navigator.push(
-              //   context,
-              //MaterialPageRoute(
-              // builder: (context) => CartScreen(),
-              //),
-              //);
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => _buildAddToCartRow(),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
