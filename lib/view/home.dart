@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/agege.dart';
+import 'package:foodexpress/view/akara.dart';
+import 'package:foodexpress/view/asaro.dart';
+import 'package:foodexpress/view/asun.dart';
+import 'package:foodexpress/view/cart_screen.dart';
 import 'package:foodexpress/view/country_kitchen.dart';
 import 'package:foodexpress/view/dishes.dart';
+import 'package:foodexpress/view/jollof_rice.dart';
+import 'package:foodexpress/view/pepper_soup.dart';
+import 'package:foodexpress/view/promo.dart';
 import 'package:foodexpress/view/restaurant.dart';
 
 class HomeScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,31 +149,125 @@ class HomeScreen extends StatelessWidget {
                   crossAxisSpacing: 10.0,
                   mainAxisSpacing: 10.0,
                   children: [
-                    _buildMedicationCard(
-                        context, 'Jollof rice', 'asset/imgs/jollof_rice.png'),
-                    _buildMedicationCard(
-                        context, 'Peppersoup', 'asset/imgs/peppersoup.png'),
-                    _buildMedicationCard(
-                        context, 'Akara', 'asset/imgs/akara.jpg'),
-                    _buildMedicationCard(
-                        context, 'Agege', 'asset/imgs/Agege.jpeg'),
-                    _buildMedicationCard(
-                        context, 'Asun', 'asset/imgs/asun.jpg'),
-                    _buildMedicationCard(
-                        context, 'Asaro', 'asset/imgs/asaro.jpg'),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => JollofRice(
+                              foodName: 'Jollof rice',
+                              price: 300,
+                              imagePath: 'asset/imgs/jollof_rice.png',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Jollof rice', 'asset/imgs/jollof_rice.png'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PepperSoup(
+                              foodName: 'Pepper soup',
+                              price: 200,
+                              imagePath: 'asset/imgs/peppersoup.png',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Peppersoup', 'asset/imgs/peppersoup.png'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Akara(
+                              foodName: 'Akara',
+                              price: 100,
+                              imagePath: 'asset/imgs/akara.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Akara', 'asset/imgs/akara.jpg'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Agege(
+                              foodName: 'Agege',
+                              price: 50,
+                              imagePath: 'asset/imgs/Agege.jpeg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Agege', 'asset/imgs/Agege.jpeg'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Asun(
+                              foodName: 'Asun',
+                              price: 500,
+                              imagePath: 'asset/imgs/asun.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Asun', 'asset/imgs/asun.jpg'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Asaro(
+                              foodName: 'Asaro',
+                              price: 200,
+                              imagePath: 'asset/imgs/asaro.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: _buildMedicationCard(
+                          context, 'Asaro', 'asset/imgs/asaro.jpg'),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-          Container(
-            height: 50,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 247, 235, 131),
-              image: DecorationImage(
-                image: AssetImage("asset/imgs/promo.png"),
-                fit: BoxFit.cover,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Promo(),
+                ),
+              );
+            },
+            child: Container(
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 247, 235, 131),
+                image: DecorationImage(
+                  image: AssetImage("asset/imgs/promo.png"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -191,6 +294,13 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.black,
                   fontSize: 12,
                 )),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Add the item to the cart
+              //cartItems.add(CartItem(name: name, price: 300)); // You can adjust the price as needed
+            },
+            child: Text('Add to Cart'),
           ),
         ],
       ),

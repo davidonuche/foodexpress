@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/view/jollof_rice.dart';
+import 'package:foodexpress/view/pepper_soup.dart';
 
 class CountryKitchen extends StatelessWidget {
   @override
@@ -56,15 +58,99 @@ class CountryKitchen extends StatelessWidget {
             SizedBox(height: 16),
             Column(
               children: [
-                _buildFoodItem(
-                    'Jollof rice', '#3,200', 'asset/imgs/jellof.png'),
-                _buildFoodItem(
-                    'Fried chicken', '#2,500', 'asset/imgs/amala.png'),
-                _buildFoodItem('Plantain', '#1,000', 'asset/imgs/spag.png'),
-                _buildFoodItem(
-                    'Pounded yam', '#2,800', 'asset/imgs/jellof.png'),
-                _buildFoodItem('Efo riro', '#2,700', 'asset/imgs/amala.png'),
-                _buildFoodItem('Pepper soup', '#2,000', 'asset/imgs/spag.png'),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => JollofRice(
+                          foodName: 'Jollof rice',
+                          price: 300,
+                          imagePath: 'asset/imgs/jollof_rice.png',
+                        ),
+                      ),
+                    );
+                  },
+                  child: _buildFoodItem(
+                      'Jollof rice', '#3,200', 'asset/imgs/jellof.png'),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => JollofRice(
+                          foodName: 'Jollof rice',
+                          price: 300,
+                          imagePath: 'asset/imgs/jollof_rice.png',
+                        ),
+                      ),
+                    );
+                  },
+                  child: _buildFoodItem(
+                      'Fried chicken', '#2,500', 'asset/imgs/amala.png'),
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JollofRice(
+                            foodName: 'Jollof rice',
+                            price: 300,
+                            imagePath: 'asset/imgs/jollof_rice.png',
+                          ),
+                        ),
+                      );
+                    },
+                    child: _buildFoodItem(
+                        'Plantain', '#1,000', 'asset/imgs/spag.png')),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => JollofRice(
+                          foodName: 'Jollof rice',
+                          price: 300,
+                          imagePath: 'asset/imgs/jollof_rice.png',
+                        ),
+                      ),
+                    );
+                  },
+                  child: _buildFoodItem(
+                      'Pounded yam', '#2,800', 'asset/imgs/jellof.png'),
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JollofRice(
+                            foodName: 'Jollof rice',
+                            price: 300,
+                            imagePath: 'asset/imgs/jollof_rice.png',
+                          ),
+                        ),
+                      );
+                    },
+                    child: _buildFoodItem(
+                        'Efo riro', '#2,700', 'asset/imgs/amala.png')),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PepperSoup(
+                            foodName: 'Pepper Soup',
+                            price: 300,
+                            imagePath: 'asset/imgs/peppersoup.png',
+                          ),
+                        ),
+                      );
+                    },
+                    child: _buildFoodItem(
+                        'Pepper soup', '#2,000', 'asset/imgs/spag.png')),
               ],
             ),
           ],
