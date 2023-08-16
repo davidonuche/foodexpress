@@ -1,12 +1,16 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodexpress/service/cart_model.dart';
+import 'package:foodexpress/service/cart_service.dart';
 
 class Agege extends StatefulWidget {
   final String foodName;
   final String imagePath;
   final double price;
 
-  Agege(
-      {required this.foodName, required this.imagePath, required this.price});
+  Agege({required this.foodName, required this.imagePath, required this.price});
 
   @override
   _AgegeState createState() => _AgegeState();
@@ -105,12 +109,14 @@ class _AgegeState extends State<Agege> {
           Spacer(),
           ElevatedButton(
             onPressed: () {
-               Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => _buildAddToCartRow(),
-                ),
+              Random random = Random();
+              CartModel movie = CartModel(
+                id: random.nextInt(10000),
+                name: widget.foodName,
+                imageUrl: widget.imagePath,
+                price: widget.price,
               );
+              context.read<CartService>().addcart(movie, context);
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.green,

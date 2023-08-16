@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodexpress/service/cart_service.dart';
+import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
-  final List<CartItem> cartItems;
-
-  CartScreen(
-    Key? key,
-    this.cartItems, {
-    required String foodName,
-    required String imagePath,
-    required int itemCount,
-    required double price,
-  }) : super(key: key);
+  CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,42 +11,47 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Cart'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: cartItems.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(cartItems[index].name),
-                  subtitle: Text(
-                      'Price: \$${cartItems[index].price.toStringAsFixed(2)}'),
-                );
-              },
-            ),
-          ),
-          Divider(),
-          ListTile(
-            title: Text('Total: \$${calculateTotal().toStringAsFixed(2)}'),
-            trailing: ElevatedButton(
-              onPressed: () {
-                // Navigate to payment screen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PaymentScreen()),
-                );
-              },
-              child: Text('Proceed to Pay'),
-            ),
-          ),
-        ],
+      body: Consumer<CartService>(
+        builder: (context, data, _) {
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: data.carts.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(data.carts[index].name),
+                      subtitle: Text(
+                          'Price: \$${data.carts[index].price.toStringAsFixed(2)}'),
+                    );
+                  },
+                ),
+              ),
+              Divider(),
+              ListTile(
+                title: Text(
+                    'Total: \$${calculateTotal(data.carts).toStringAsFixed(2)}'),
+                trailing: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to payment screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PaymentScreen()),
+                    );
+                  },
+                  child: Text('Proceed to Pay'),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
 
-  double calculateTotal() {
+  double calculateTotal(items) {
     double total = 0;
-    for (var item in cartItems) {
+    for (var item in items) {
       total += item.price;
     }
     return total;

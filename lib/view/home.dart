@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:foodexpress/service/cart_model.dart';
+import 'package:foodexpress/service/cart_service.dart';
 import 'package:foodexpress/view/agege.dart';
 import 'package:foodexpress/view/akara.dart';
 import 'package:foodexpress/view/asaro.dart';
@@ -51,12 +55,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => CartScreen(cartItems: cartProvider.cartItems, foodName: '', itemCount: null, imagePath: '', price: null,),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CartScreen(),
+                      ),
+                    );
                   },
                   icon: Stack(
                     children: [
@@ -216,9 +220,9 @@ class HomeScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => PepperSoup(
-                              foodName: 'Pepper soup',
-                              price: 200,
-                              imagePath: 'asset/imgs/peppersoup.png',
+                              foodName: 'Peppersoup',
+                              price: 300,
+                              imagePath: 'asset/imgs/asset/imgs/peppersoup.png',
                             ),
                           ),
                         );
@@ -342,8 +346,14 @@ class HomeScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              //final cartProvider = Provider.of<CartProvider>(context, listen: false);
-              //cartProvider.addToCart(CartItem(name: name, price: 300));
+              Random random = Random();
+              CartModel movie = CartModel(
+                id: random.nextInt(10000),
+                name: name,
+                imageUrl: imageUrl,
+                price: 300,
+              );
+              context.read<CartService>().addcart(movie, context);
             },
             child: Text('Add to Cart'),
           ),

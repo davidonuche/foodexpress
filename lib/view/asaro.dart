@@ -1,4 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:foodexpress/service/cart_model.dart';
+import 'package:foodexpress/service/cart_service.dart';
+import 'package:provider/provider.dart';
 
 class Asaro extends StatefulWidget {
   final String foodName;
@@ -104,12 +109,14 @@ class _AsaroState extends State<Asaro> {
           Spacer(),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => _buildAddToCartRow(),
-                ),
+              Random random = Random();
+              CartModel movie = CartModel(
+                id: random.nextInt(10000),
+                name: widget.foodName,
+                imageUrl: widget.imagePath,
+                price: widget.price,
               );
+              context.read<CartService>().addcart(movie, context);
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
